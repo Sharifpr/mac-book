@@ -9,6 +9,7 @@ const extraMemoryCost = document.getElementById('etra-memory-cost');
 const bastPrice = document.getElementById('bast-price');
 const totalPrice = document.getElementById('total-price');
 const extraStorageCost = document.getElementById('etra-storage-cost');
+const total = document.getElementById('total-cost');
 
 // handle memory 
 memory8gb.addEventListener('click', function () {
@@ -21,7 +22,6 @@ memory16gb.addEventListener('click', function () {
     extraMemoryCost.innerText = '180';
     // update total
     getUpdateValue();
-
 })
 
 // handle Storage
@@ -58,7 +58,7 @@ chargeDalivery.addEventListener('click', function () {
     getUpdateValue()
 })
 
-// update total 
+// update total price
 function getUpdateValue() {
     const extraCharge = parseInt(extraMemoryCost.innerText);
     const extraStorage = parseInt(extraStorageCost.innerText);
@@ -66,9 +66,34 @@ function getUpdateValue() {
     const granDaliveryCost = parseInt(totalDaliveryCost.innerText);
     const totalCost = extraCharge + productPrice + granDaliveryCost + extraStorage;
     totalPrice.innerText = totalCost;
-
+    total.innerText = totalCost;
 }
 
-const total = document.getElementById('total-cost').addEventListener('click', function () {
-    console.log('hello')
+// promo code apply
+function promoCode(myEvent) {
+    if (myEvent.value == 'stevekaku') {
+        const discountPrice = parseInt(totalPrice.innerText) * 20;
+        console.log(discountPrice)
+        const newPrice = discountPrice / 100;
+        total.innerText = totalPrice.innerText - newPrice;
+    }
+    else {
+        inputField.value = 'your promo code is worng';
+    }
+}
+
+// update total 
+totalPrice.addEventListener('click', function () {
+    getUpdateValue();
 })
+total.addEventListener('click', function () {
+    getUpdateValue();
+})
+
+// promo code section
+const inputField = document.getElementById('promo-input-field');
+document.getElementById('cupon-button').addEventListener('click', function () {
+    promoCode(inputField);
+})
+
+
