@@ -77,9 +77,7 @@ function promoCode(myEvent) {
         const newPrice = discountPrice / 100;
         total.innerText = totalPrice.innerText - newPrice;
     }
-    else {
-        inputField.value = '';
-    }
+    inputField.value = '';
 }
 
 // update total 
