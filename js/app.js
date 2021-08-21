@@ -1,12 +1,12 @@
 //update memory cost use funtion 
-function updateMemoryCost(isBaseMemory) {
+function getUpdateMemoryCost(isMemory) {
     let extraMemoryCost = document.getElementById('extra-memory-cost').innerText;
     let totalMemoryCost = document.getElementById('extra-memory-cost');
 
-    if (isBaseMemory == '8gb') {
+    if (isMemory == '8gb') {
         totalMemoryCost.innerText = 0;
     }
-    else if (isBaseMemory == '16gb') {
+    else if (isMemory == '16gb') {
         totalMemoryCost.innerText = 180;
     }
     return totalMemoryCost;
@@ -14,7 +14,7 @@ function updateMemoryCost(isBaseMemory) {
 }
 
 //update storage cost use funtion 
-function updateStorageCost(isStorage) {
+function updateTotalStorageCost(isStorage) {
     let extraStorageCost = document.getElementById('extra-storage-cost').innerText;
     let totalStorageCost = document.getElementById('extra-storage-cost');
 
@@ -50,9 +50,9 @@ function updateDeliveryCost(isDeliveryCharge) {
 
 function calculateTotal(memory, storage, deliverycharge, code) {
 
-    let memoryCost = updateMemoryCost(memory).innerText;
+    let memoryCost = getUpdateMemoryCost(memory).innerText;
     const finalMemoryCost = parseInt(memoryCost);
-    let storageCost = updateStorageCost(storage).innerText;
+    let storageCost = updateTotalStorageCost(storage).innerText;
     const finalStorageCost = parseInt(storageCost);
     let deliveryCost = updateDeliveryCost(deliverycharge).innerText;
     const finaldeliveryCost = parseInt(deliveryCost);
@@ -80,14 +80,14 @@ function calculateTotal(memory, storage, deliverycharge, code) {
 //Update memory cost 
 document.getElementById('16gb-memory').addEventListener('click', function () {
 
-    updateMemoryCost('16gb');
+    getUpdateMemoryCost('16gb');
     // update total 
     calculateTotal('16gb');
 
 });
 document.getElementById('8gb-memory').addEventListener('click', function () {
 
-    updateMemoryCost('8gb');
+    getUpdateMemoryCost('8gb');
     // update total 
     calculateTotal('8gb');
 
@@ -96,21 +96,21 @@ document.getElementById('8gb-memory').addEventListener('click', function () {
 //update Storage Cost 
 document.getElementById('256gb-ssd').addEventListener('click', function () {
 
-    updateStorageCost('256gb-storage');
+    updateTotalStorageCost('256gb-storage');
     // update total 
     calculateTotal('256gb-storage');
 
 });
 document.getElementById('512gb-ssd').addEventListener('click', function () {
 
-    updateStorageCost('512gb-storage');
+    updateTotalStorageCost('512gb-storage');
     // update total 
     calculateTotal('512gb-storage');
 
 });
 document.getElementById('1tb-ssd').addEventListener('click', function () {
 
-    updateStorageCost('1tb-storage');
+    updateTotalStorageCost('1tb-storage');
     // update total 
     calculateTotal('1tb-storage');
 
