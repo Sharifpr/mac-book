@@ -78,7 +78,7 @@ function promoCode(myEvent) {
         total.innerText = totalPrice.innerText - newPrice;
     }
     else {
-        inputField.value = 'your promo code is worng';
+        inputField.value = '';
     }
 }
 
