@@ -31,8 +31,8 @@ function updateTotalStorageCost(isStorage) {
     return totalStorageCost;
 
 }
-//update delivery cost use funtion 
 
+//update delivery cost use funtion 
 function updateDeliveryCost(isDeliveryCharge) {
     let deliveryCost = document.getElementById('extra-delivery-cost').innerText;
     let totalDeliveryCost = document.getElementById('extra-delivery-cost');
@@ -47,7 +47,6 @@ function updateDeliveryCost(isDeliveryCharge) {
 }
 
 //calculate total charge 
-
 function calculateTotal(memory, storage, deliverycharge, code) {
 
     let memoryCost = getUpdateMemoryCost(memory).innerText;
